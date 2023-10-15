@@ -56,11 +56,31 @@ namespace LogicMain
             return String.Join("", Output);//return value
         }
 
-        public string eightBitAdd(){
-            return "";
+        public string eightBitAdd(string[] inputs){
+            string[] Output = new string[9]; //set output list
+            string[] StringL1 = inputs[0].ToCharArray().Select(c => c.ToString()).ToArray(); //these two split inputs into individual bits
+            string[] StringL2 = inputs[1].ToCharArray().Select(c => c.ToString()).ToArray();
+            string[] Inputs = new string[] {StringL1[4] + StringL1[5] + StringL1[6] + StringL1[7], StringL2[4] + StringL2[5] + StringL2[6] + StringL2[7], inputs[2]}; //set first 1 but adder inputs to array
+            string ResultBit1 = fourBitAdd(Inputs); //do the first calculation
+            char[] CarryBitArr = ResultBit1.ToCharArray(); //set that to an array to allow for the carry bit to be abtained
+            char CarryBit = CarryBitArr[0]; //get the carry bit
+            Inputs = new string[] {StringL1[0] + StringL1[1] + StringL1[2] + StringL1[3], StringL2[0] + StringL2[1] + StringL2[2] + StringL2[3], CarryBit.ToString()}; //set new inputs with thte newly gained carry bit
+            string ResultBit2 = fourBitAdd(Inputs); //get new outputs
+            string[] OABitArr = ResultBit1.ToCharArray().Select(c => c.ToString()).ToArray(); //take the results and take to individual values 
+            string[] OBCBitArr = ResultBit2.ToCharArray().Select(c => c.ToString()).ToArray();
+            Output[8] = OABitArr[4];//set all the outputes in the correct order of bits 
+            Output[7] = OABitArr[3];
+            Output[6] = OABitArr[2];
+            Output[5] = OABitArr[1];
+            Output[4] = OBCBitArr[4];
+            Output[3] = OBCBitArr[3];
+            Output[2] = OBCBitArr[2];
+            Output[1] = OBCBitArr[1];
+            Output[0] = OBCBitArr[0];
+            return String.Join("", Output);//return value
         }
 
-        public string LeftShift(){
+        public string LeftShift(string Byte){
             return "";
         }
 

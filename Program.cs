@@ -62,8 +62,8 @@ namespace LogicMain{
         LogicMain.ALU alu = new LogicMain.ALU();
         LogicGates logicGates = new LogicGates();
         public void Main(){
-            string[] input = new string[] {"1100", "1110", "1"};
-            Console.WriteLine(alu.fourBitAdd(input));
+            string[] input = new string[] {"11111111", "11111111", "1"};
+            Console.WriteLine(alu.eightBitAdd(input)); //110101101
         }
     }
 }
