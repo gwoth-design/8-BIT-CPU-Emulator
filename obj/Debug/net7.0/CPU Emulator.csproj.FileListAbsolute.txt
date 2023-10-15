@@ -1,0 +1,14 @@
+D:\Programming\C#\CPU Emulator\obj\Debug\net7.0\CPU Emulator.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming\C#\CPU Emulator\obj\Debug\net7.0\CPU Emulator.AssemblyInfoInputs.cache
+D:\Programming\C#\CPU Emulator\obj\Debug\net7.0\CPU Emulator.AssemblyInfo.cs
+D:\Programming\C#\CPU Emulator\obj\Debug\net7.0\CPU Emulator.csproj.CoreCompileInputs.cache
+D:\Programming\C#\CPU Emulator\bin\Debug\net7.0\CPU Emulator.exe
+D:\Programming\C#\CPU Emulator\bin\Debug\net7.0\CPU Emulator.deps.json
+D:\Programming\C#\CPU Emulator\bin\Debug\net7.0\CPU Emulator.runtimeconfig.json
+D:\Programming\C#\CPU Emulator\bin\Debug\net7.0\CPU Emulator.dll
+D:\Programming\C#\CPU Emulator\bin\Debug\net7.0\CPU Emulator.pdb
+D:\Programming\C#\CPU Emulator\obj\Debug\net7.0\CPU Emulator.dll
+D:\Programming\C#\CPU Emulator\obj\Debug\net7.0\refint\CPU Emulator.dll
+D:\Programming\C#\CPU Emulator\obj\Debug\net7.0\CPU Emulator.pdb
+D:\Programming\C#\CPU Emulator\obj\Debug\net7.0\CPU Emulator.genruntimeconfig.cache
+D:\Programming\C#\CPU Emulator\obj\Debug\net7.0\ref\CPU Emulator.dll
