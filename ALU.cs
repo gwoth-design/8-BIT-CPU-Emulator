@@ -80,6 +80,81 @@ namespace LogicMain
             return String.Join("", Output);//return value
         }
 
+        public string oneBitSubtractor(int[] inputs){
+            int A0 = inputs[2];//setup 3 values
+            int A1 = inputs[1];
+            int Carry = inputs[0];
+            string[] Output = new string[2]; //setup output string
+            int XOR1 = logicGates.XOR(A0, A1); //setup first XOR that will be used more than once
+            Output[1] = logicGates.XOR(XOR1, Carry).ToString();//set output 1
+            Output[0] = logicGates.OR(logicGates.AND(Carry, logicGates.NOT(XOR1)), logicGates.AND(A1, logicGates.NOT(A0))).ToString();//set output 2
+            return string.Join("", Output);
+        }
+
+        public string eightBitSubtractor(string[] inputs){
+            string[] byte1 = inputs[0].ToCharArray().Select(c => c.ToString()).ToArray();//setup byte 1
+            string[] byte2 = inputs[1].ToCharArray().Select(c => c.ToString()).ToArray();//setup byte 2
+            string[] Output = new string[8];//setup output
+            
+            //least significant bit aka the end bit
+            int[] intInputs = new int[] {0, int.Parse(byte2[7]), int.Parse(byte1[7])};//set inputs
+            string Outs = oneBitSubtractor(intInputs);//calc
+            string[] OutsArr = Outs.ToCharArray().Select(c => c.ToString()).ToArray();//set output arr
+            Output[7] = OutsArr[1];//select output for the output bit
+            string Carry = OutsArr[0];//select carry bit
+            //the same for the rest of them but different bits
+
+            //7th bit
+            intInputs = new int[] {int.Parse(Carry), int.Parse(byte2[6]), int.Parse(byte1[6])};
+            Outs = oneBitSubtractor(intInputs);
+            OutsArr = Outs.ToCharArray().Select(c => c.ToString()).ToArray();
+            Output[6] = OutsArr[1];
+            Carry = OutsArr[0];
+
+            //6th bit
+            intInputs = new int[] {int.Parse(Carry), int.Parse(byte2[5]), int.Parse(byte1[5])};
+            Outs = oneBitSubtractor(intInputs);
+            OutsArr = Outs.ToCharArray().Select(c => c.ToString()).ToArray();
+            Output[5] = OutsArr[1];
+            Carry = OutsArr[0];
+
+            //5th bit
+            intInputs = new int[] {int.Parse(Carry), int.Parse(byte2[4]), int.Parse(byte1[4])};
+            Outs = oneBitSubtractor(intInputs);
+            OutsArr = Outs.ToCharArray().Select(c => c.ToString()).ToArray();
+            Output[4] = OutsArr[1];
+            Carry = OutsArr[0];
+
+            //4th bit
+            intInputs = new int[] {int.Parse(Carry), int.Parse(byte2[3]), int.Parse(byte1[3])};
+            Outs = oneBitSubtractor(intInputs);
+            OutsArr = Outs.ToCharArray().Select(c => c.ToString()).ToArray();
+            Output[3] = OutsArr[1];
+            Carry = OutsArr[0];
+
+            //3rd bit
+            intInputs = new int[] {int.Parse(Carry), int.Parse(byte2[2]), int.Parse(byte1[2])};
+            Outs = oneBitSubtractor(intInputs);
+            OutsArr = Outs.ToCharArray().Select(c => c.ToString()).ToArray();
+            Output[2] = OutsArr[1];
+            Carry = OutsArr[0];
+
+
+            //2nd bit
+            intInputs = new int[] {int.Parse(Carry), int.Parse(byte2[1]), int.Parse(byte1[1])};
+            Outs = oneBitSubtractor(intInputs);
+            OutsArr = Outs.ToCharArray().Select(c => c.ToString()).ToArray();
+            Output[1] = OutsArr[1];
+            Carry = OutsArr[0];
+
+            //1st bit
+            intInputs = new int[] {int.Parse(Carry), int.Parse(byte2[0]), int.Parse(byte1[0])};
+            Outs = oneBitSubtractor(intInputs);
+            OutsArr = Outs.ToCharArray().Select(c => c.ToString()).ToArray();
+            Output[0] = OutsArr[1];
+            return string.Join("", Output);//return the output
+        }
+
         public string LeftShift(string Byte){
             return "";
         }
