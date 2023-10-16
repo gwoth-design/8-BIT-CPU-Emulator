@@ -95,6 +95,15 @@ namespace LogicMain
             string[] byte1 = inputs[0].ToCharArray().Select(c => c.ToString()).ToArray();//setup byte 1
             string[] byte2 = inputs[1].ToCharArray().Select(c => c.ToString()).ToArray();//setup byte 2
             string[] Output = new string[8];//setup output
+
+            for(int i = 7; i > 0; i--){
+                int[] intInputs = new int[] {0, int.Parse(byte2[i]), int.Parse(byte1[i])};//set inputs
+                string Outs = oneBitSubtractor(intInputs);//calc
+                string[] OutsArr = Outs.ToCharArray().Select(c => c.ToString()).ToArray();//set output arr
+                Output[i] = OutsArr[1];//select output for the output bit
+                string Carry = OutsArr[0];//select carry bit
+            }
+            //this is the only code you need take it and use it dumbass
             
             //least significant bit aka the end bit
             int[] intInputs = new int[] {0, int.Parse(byte2[7]), int.Parse(byte1[7])};//set inputs
