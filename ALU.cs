@@ -16,6 +16,20 @@ namespace LogicMain
             return joinedResult; //return
         }
 
+        public string eightBitAdder(string[] inputs){
+            string Output = new string[8];//setup outputs
+            string Byte1 = inputs[0].ToCharArray().Select(c => c.ToString()).ToArray();//setup the 2 bytes into arrays
+            string Byte2 = inputs[1].ToCharArray().Select(c => c.ToString()).ToArray();
+            string Carry = inputs[2];//set the carry bit
+            for(int i = 7; i > 0; i--){
+                int[] inputs = new int[] {Carry, Byte1[i], Byte2[i]};//inputs
+                string Outs = oneBitAdd(inputs);//calc
+                string[] OutsArr = Outs.ToCharArray().Select(c => c.ToString()).ToArray();//set output arr
+                Output[i] = OutsArr[1];//select output for the output bit
+                string Carry = OutsArr[0];//select carry bit
+            }
+        }
+
         public string twoBitAdd(string[] inputs)
         {
             string[] Output = new string[3]; //set output list
